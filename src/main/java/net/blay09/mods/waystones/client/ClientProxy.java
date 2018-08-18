@@ -137,4 +137,8 @@ public class ClientProxy extends CommonProxy {
 	public void playSound(String soundName, float pitch) {
 		Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation(soundName), pitch));
 	}
+
+	public void registerDimension(String dim) {
+
+	}
 }

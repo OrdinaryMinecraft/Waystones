@@ -4,18 +4,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import net.blay09.mods.waystones.Waystones;
-import net.blay09.mods.waystones.network.handler.HandlerConfig;
-import net.blay09.mods.waystones.network.handler.HandlerFreeWarpReturn;
-import net.blay09.mods.waystones.network.handler.HandlerTeleportEffect;
-import net.blay09.mods.waystones.network.handler.HandlerWarpStone;
-import net.blay09.mods.waystones.network.handler.HandlerWaystoneName;
-import net.blay09.mods.waystones.network.handler.HandlerWaystones;
-import net.blay09.mods.waystones.network.message.MessageConfig;
-import net.blay09.mods.waystones.network.message.MessageTeleportEffect;
-import net.blay09.mods.waystones.network.message.MessageWarpReturn;
-import net.blay09.mods.waystones.network.message.MessageWarpStone;
-import net.blay09.mods.waystones.network.message.MessageWaystoneName;
-import net.blay09.mods.waystones.network.message.MessageWaystones;
+import net.blay09.mods.waystones.network.handler.*;
+import net.blay09.mods.waystones.network.message.*;
 
 public class NetworkHandler {
 
@@ -28,6 +18,7 @@ public class NetworkHandler {
 		channel.registerMessage(HandlerWaystoneName.class, MessageWaystoneName.class, 3, Side.SERVER);
 		channel.registerMessage(HandlerWarpStone.class, MessageWarpStone.class, 4, Side.SERVER);
 		channel.registerMessage(HandlerTeleportEffect.class, MessageTeleportEffect.class, 5, Side.CLIENT);
+		channel.registerMessage(HandlerDimension.class, MessageDimension.class, 6, Side.CLIENT);
 	}
 
 }

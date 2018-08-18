@@ -32,11 +32,6 @@ public class CommonProxy {
 		WaystoneManager.sendPlayerWaystones(event.player);
 	}
 
-	@SubscribeEvent
-	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-		WaystoneManager.sendPlayerWaystones(event.player);
-	}
-
 	public void openWaystoneNameEdit(TileWaystone tileEntity) {
 
 	}
@@ -50,6 +45,10 @@ public class CommonProxy {
 	}
 
 	public void playSound(String soundName, float pitch) {
+
+	}
+
+	public void registerDimension(String dim) {
 
 	}
 }

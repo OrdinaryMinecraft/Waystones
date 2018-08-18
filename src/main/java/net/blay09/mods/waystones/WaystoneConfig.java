@@ -31,6 +31,12 @@ public class WaystoneConfig {
 	public boolean globalNoCooldown;
 	public boolean globalInterDimension;
 
+	public String stopWorldName;
+	public int stopX1;
+	public int stopX2;
+	public int stopZ1;
+	public int stopZ2;
+
 	public void reloadLocal(Configuration config) {
 		teleportButton = config.getBoolean("Teleport Button in GUI", "general", false, "Should there be a button in the inventory to access the waystone menu?");
 		teleportButtonCooldown = config.getInt("Teleport Button Cooldown", "general", 300, 0, 86400, "The cooldown between usages of the teleport button in seconds.");
@@ -53,6 +59,12 @@ public class WaystoneConfig {
 
 		globalNoCooldown = config.getBoolean("No Cooldown on Global Waystones", "general", true, "If true, waystones marked as global have no cooldown.");
 		globalInterDimension = config.getBoolean("Interdimensional Teleport on Global Waystones", "general", true, "If true, waystones marked as global work inter-dimensionally.");
+
+		stopWorldName = config.getString("stopWorld", "stop", "3", "DIM ID");
+		stopX1 = config.getInt("stopX1", "stop", 0, -99999, 99999, "X1");
+		stopX2 = config.getInt("stopX2", "stop", 0, -99999, 99999, "X2");
+		stopZ1 = config.getInt("stopZ1", "stop", 0, -99999, 99999, "Z1");
+		stopZ2 = config.getInt("stopZ2", "stop", 0, -99999, 99999, "Z2");
 
 		String[] serverWaystoneData = config.getStringList("Server Waystones", "generated", new String[0], "This option is automatically populated by the server when using the Server Hub Mode. Do not change.");
 		WaystoneEntry[] serverWaystones = new WaystoneEntry[serverWaystoneData.length];

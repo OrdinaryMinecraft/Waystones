@@ -108,6 +108,7 @@ public class WaystoneConfig {
 		config.teleportButtonReturnOnly = buf.readBoolean();
 		config.warpStoneCooldown = buf.readInt();
 		config.interDimension = buf.readBoolean();
+		config.globalInterDimension = buf.readBoolean();
 		config.creativeModeOnly = buf.readBoolean();
 		config.setSpawnPoint = buf.readBoolean();
 		return config;
@@ -119,6 +120,7 @@ public class WaystoneConfig {
 		buf.writeBoolean(teleportButtonReturnOnly);
 		buf.writeInt(warpStoneCooldown);
 		buf.writeBoolean(interDimension);
+		buf.writeBoolean(globalInterDimension);
 		buf.writeBoolean(creativeModeOnly);
 		buf.writeBoolean(setSpawnPoint);
 	}

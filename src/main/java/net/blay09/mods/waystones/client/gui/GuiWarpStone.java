@@ -29,10 +29,10 @@ public class GuiWarpStone extends GuiScreen {
 	@Override
 	@SuppressWarnings("unchecked")
 	public void initGui() {
-		btnPrevPage = new GuiButton(0, width / 2 - 100, height / 2 + 40, 95, 20, I18n.format("gui.waystones:warpStone.previousPage"));
+		btnPrevPage = new GuiButton(0, width / 2 - 100, height / 2 + 90, 95, 20, I18n.format("gui.waystones:warpStone.previousPage"));
 		buttonList.add(btnPrevPage);
 
-		btnNextPage = new GuiButton(1, width / 2 + 5, height / 2 + 40, 95, 20, I18n.format("gui.waystones:warpStone.nextPage"));
+		btnNextPage = new GuiButton(1, width / 2 + 5, height / 2 + 90, 95, 20, I18n.format("gui.waystones:warpStone.nextPage"));
 		buttonList.add(btnNextPage);
 
 		updateList();
@@ -40,7 +40,7 @@ public class GuiWarpStone extends GuiScreen {
 
 	@SuppressWarnings("unchecked")
 	public void updateList() {
-		final int buttonsPerPage = 4;
+		final int buttonsPerPage = 8;
 
 		btnPrevPage.enabled = pageOffset > 0;
 		btnNextPage.enabled = pageOffset < (entries.length - 1) / buttonsPerPage;
@@ -56,9 +56,9 @@ public class GuiWarpStone extends GuiScreen {
 		for(int i = 0; i < buttonsPerPage; i++) {
 			int entryIndex = pageOffset * buttonsPerPage + i;
 			if(entryIndex >= 0 && entryIndex < entries.length) {
-				GuiButtonWaystone btnWaystone = new GuiButtonWaystone(2 + i, width / 2 - 100, height / 2 - 60 + y, entries[entryIndex]);
+				GuiButtonWaystone btnWaystone = new GuiButtonWaystone(2 + i, width / 2 - 100, height / 2 - 90 + y, entries[entryIndex]);
 				if(entries[entryIndex].getDimensionId() != Minecraft.getMinecraft().theWorld.provider.dimensionId) {
-					if(!Waystones.getConfig().interDimension && !(!entries[entryIndex].isGlobal() || !Waystones.getConfig().globalInterDimension)) {
+					if(!WaystoneManager.isDimensionWarpAllowed(entries[entryIndex])) {
 						btnWaystone.enabled = false;
 					}
 				}
@@ -88,7 +88,7 @@ public class GuiWarpStone extends GuiScreen {
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		GL11.glColor4f(1f, 1f, 1f, 1f);
 		drawRect(width / 2 - 50, height / 2 - 50, width / 2 + 50, height / 2 + 50, 0xFFFFFF);
-		drawCenteredString(fontRendererObj, I18n.format("gui.waystones:warpStone.selectDestination"), width / 2, height / 2 - 85, 0xFFFFFF);
+		drawCenteredString(fontRendererObj, I18n.format("gui.waystones:warpStone.selectDestination"), width / 2, height / 2 - 110, 0xFFFFFF);
 	}
 
 }

@@ -44,6 +44,14 @@ repositories {
     maven {
         url "http://chickenbones.net/maven/"
     }
+    maven { // the repo from which to get NEI and stuff
+        name 'test'
+        url "https://modmaven.k-4u.nl/"
+    }
+    maven { // the repo from which to get NEI and stuff
+        name 'test2'
+        url "https://maven.cil.li/"
+    }
 }
 
 dependencies {

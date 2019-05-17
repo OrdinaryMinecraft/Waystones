@@ -145,13 +145,13 @@ public class WaystoneManager {
             player.addChatComponentMessage(chatComponent);
             return false;
         }
-        WaystoneEntry serverEntry = getServerWaystone(waystone.getName());
+        //WaystoneEntry serverEntry = getServerWaystone(waystone.getName());
         World targetWorld = MinecraftServer.getServer().worldServerForDimension(waystone.getDimensionId());
         int x = waystone.getPos().getX();
         int y = waystone.getPos().getY();
         int z = waystone.getPos().getZ();
         boolean dimensionWarp = waystone.getDimensionId() != player.getEntityWorld().provider.dimensionId;
-        if (dimensionWarp && !Waystones.getConfig().interDimension && !(serverEntry == null || !Waystones.getConfig().globalInterDimension)) {
+        if (dimensionWarp && !isDimensionWarpAllowed(waystone)) {
             player.addChatComponentMessage(new ChatComponentTranslation("waystones:noDimensionWarp"));
             return false;
         }
